@@ -28,16 +28,16 @@ const eqArrays = function (arr1, arr2) { //arr1 and arr2 mean eqArrqys[0][1]
 assertEqual(eqArrays([1, 2, 3, 4], [1, 2, 3, 4]), true); 
 
 const middle = function(array) {
-  let middleArr = []
 
   if (array.length <= 2) {
     middleArr = [];
   }
   else if (array.length % 2 !== 0) {
-    middleArr = array[Math.floor(array.length / 2 )];
+    middleArr = [array[Math.floor(array.length / 2 )]];
   }
   else if (array.length % 2 === 0) {
-    middleArr = array[Math.floor((array.length - 1) / 2)]
+    middleArr = [array[Math.floor((array.length - 1) / 2)], array[Math.floor((array.length - 1) / 2) + 1]];
+    
   }
   console.log (middleArr)
 }
