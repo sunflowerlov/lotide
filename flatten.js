@@ -10,9 +10,6 @@ const assertEqual = function(actual, expected) {
 
 };
 
-// TEST CODE
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
 
 const eqArrays = function (arr1, arr2) { //arr1 and arr2 mean eqArrqys[0][1]
   if (arr1.length !== arr2.length) { //check the lengths are the same
@@ -26,11 +23,21 @@ const eqArrays = function (arr1, arr2) { //arr1 and arr2 mean eqArrqys[0][1]
 }
 }
 
-assertEqual(eqArrays([1, 2, 3, 4], [1, 2, 3, 4]), true); 
-// call eqArrays first then asserEqual
-
 const flatten = function (input) {
-  console.log(input.flat())
+  let flatten = [];
+  for (let i = 0; i < input.length; i++) {
+    const current = input[i];
+    if (!Array.isArray(input[i])) {
+      flatten.push(input[i]);
+    } else {
+      for (let j = 0; j < current.length; j++) {
+        console.log("current[j]", current[j]);
+        flatten.push(current[j]);
+      }
+    }
+  }
+  console.log('flatten',flatten)
+  return flatten
 }
 
 flatten([1, 2, [3, 4], 5, [6]]) // => [1, 2, 3, 4, 5, 6]
