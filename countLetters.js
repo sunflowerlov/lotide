@@ -8,29 +8,19 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// TEST CODE
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
+const countLetters = function (input) {
+  const noSpaces = input.split(" ").join('')
+  let result = {};
 
-const head = function (input) {
-  return input[0]
-}
-
-assertEqual(head([5,6,7]), 5);//5
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");//"hello"
-assertEqual(head([5,6,7]), 5);
-
-const countLetter = function (input) {
-  const result = {};
-
-  for (const letter of input) {
-    if (!result[letter]) {
-      result[letter] = 1
-    }
-    else {
+  for (const letter of noSpaces) {
+    if (result[letter]) {
       result[letter] += 1
     }
+    else {
+      result[letter] = 1
+    }
   }
+  console.log(result)
   return result
 }
-console.log(countLetter('LHL'))
+countLetters("lighthouse in the house") 
