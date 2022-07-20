@@ -20,24 +20,24 @@ assertEqual(head([5,6,7]), 5);//5
 assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");//"hello"
 assertEqual(head([5,6,7]), 5);
 
+//                        firstName
 const countOnly = function(allItems, itemsToCount) {
-  const result = {};
-
-  for (const name of allItems) {
-
-    if (itemsToCount[name]) {
-      if (!result[name]) {
-        result[name] = 1
+  const results = {}
+  
+  for (const item of allItems) {
+    // inside the loop,
+    // increment the counter for each item:
+    //   set a property with that string key to:
+    //     the value that was already there (or zero if nothing there) with 1 added to it.
+    if (itemsToCount[item]) { 
+      if (results[item]) {
+        results[item] += 1;
       } else {
-        result[name] += 1
+        results[item] = 1;
       }
-    } else {
-      result[name] = undefined
     }
-    
   }
-  console.log(result)
-  return result
+  return results;
 }
 
 const firstNames = [
@@ -52,6 +52,7 @@ const firstNames = [
   "Joe"
 ];
 
+//                                     itemsToCount
 const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true, "Agouhanna": false });
 
 assertEqual(result1["Jason"], 1);
