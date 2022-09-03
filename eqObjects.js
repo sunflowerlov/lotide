@@ -21,31 +21,24 @@ const eqArrays = function (arr1, arr2) { //arr1 and arr2 mean eqArrqys[0][1]
 }
 
 
-const eqObjects = function(object1, object2) {
-  const oneKey = Object.keys(object1)
-  const twoKey = Object.keys(object2)
-  let isEqual = true;
+const eqObjects = function (object1, object2) {
+  const oneKey = Object.keys(object1);
+  const twoKey = Object.keys(object2);
 
-
-  if (oneKey.length === twoKey.length) {
-    for (const eachOneKey of oneKey) {
-      if (Array.isArray(object1[eachOneKey])) {
-
-        if (!eqArrays(object1[eachOneKey], object2[eachOneKey])) {
-          isEqual = false;
-        }
-      } else {
-        if (object1[eachOneKey] !== object2[eachOneKey]) {
-          isEqual = false;
-        }
-      }
-    }
-    return isEqual;
-  } else {
+  if (oneKey.length !== twoKey.length) {
     return false;
   }
+  for (const eachOneKey of oneKey) {
+    if (Array.isArray(object1[eachOneKey])) {
+      return eqArrays(object1[eachOneKey], object2[eachOneKey]);
+    }
+    if (object1[eachOneKey] !== object2[eachOneKey]) {
+      return false;
+    }
+  }
+  return true;
+};
 
-}
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", a: "1" };
 assertEqual(eqObjects(ab, ba), true)

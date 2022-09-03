@@ -10,15 +10,11 @@ const assertEqual = function(actual, expected) {
 
 
 
-const head = function (input) {
-  return input[0]
-}
-
 const findKeyByValue = function (channel, show){
-  let channelArr = Object.keys(channel)
-  for (const channelKey of channelArr) {
-    if (channel[channelKey] === show) {
-      return channelKey
+  let channelArr = Object.keys(channel) //将channel的所有key提取出
+  for (const channelKey of channelArr) {//循环得出每一个key
+    if (channel[channelKey] === show) {//对比每个key的内容是否与show一样
+      return channelKey//如果一样则返回key
     }
   }
 }

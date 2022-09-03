@@ -1,0 +1,22 @@
+{
+  "name": "@sunflowerlov/lotide",
+  "version": "1.0.0",
+  "description": "hi",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunflowerlov/lotide.git"
+  },
+  "author": "@sunflowerlov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunflowerlov/lotide/issues"
+  },
+  "homepage": "https://github.com/sunflowerlov/lotide#readme"
+}

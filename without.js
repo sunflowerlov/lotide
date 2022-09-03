@@ -10,7 +10,6 @@ const assertArraysEqual = function(array1, array2) {
 };
 
 
-
 const eqArrays = function (arr1, arr2) {
   if (arr1.length !== arr2.length) {
     return false
@@ -23,34 +22,33 @@ const eqArrays = function (arr1, arr2) {
 }
 }
 
-assertArraysEqual([1, 2, 3, 4], [1, 2, 3, 4]); // => should PASS
-assertArraysEqual([1, 2, 3, 4], [1, 2, 3, 4, 6, 7, 2]);
 
-const without = function (input1, input2) {
-  let output = [];
-  // for (let i = 0; i < input1.length; i++) {
-  //   output.push(input1[i])
-  // }
-  for (let i = 0; i < input1.length; i++) {
-    let temp = false;
-    for (let j = 0; j < input2.length; j++){
-      if (input1[i] === input2[j]) {
-        temp = true
+const without = function (sourceArr, removeArr){
+  let result = [];
+  let temp = false;
+
+  for (let i = 0; i < sourceArr.length; i++) {
+    for (let j = 0; j < removeArr.length; j++) {
+      if (sourceArr[i] === removeArr[j]) {
+        temp = true;
+      }
+      else {
+        temp = false
       }
     }
     if (!temp) {
-      output.push(input1[i])
+      result.push(sourceArr[i]);
     }
   }
-  return output
-}
 
+  console.log(result)
+  return result
+}
 
 console.log(without([1, 2, 3], [1])) // => [2, 3]
 console.log(without(["1", "2", "3"], [1, 2, "3"])) // => ["1", "2"]
 
 const words = ["hello", "world", "lighthouse"];
-console.log(without(words, ["lighthouse"])); // no need to capture return value for this test case
-// Make sure the original array was not altered by the without function
-assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+console.log(without(words, ["lighthouse"])); //call without function
+assertArraysEqual(words, ["hello", "world", "lighthouse"]);//check words arr is the same with assert[1]
 
