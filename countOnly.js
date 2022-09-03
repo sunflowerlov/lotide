@@ -1,24 +1,5 @@
 // FUNCTION IMPLEMENTATION
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`Assertion Passed: ${actual} === ${expected}`);
-  }
-  else {
-    console.log(`Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-// TEST CODE
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
-
-const head = function (input) {
-  return input[0]
-}
-
-assertEqual(head([5,6,7]), 5);//5
-assertEqual(head(["Hello", "Lighthouse", "Labs"]), "Hello");//"hello"
-assertEqual(head([5,6,7]), 5);
+const assertEqual = require('./assertEqual');
 
 //                        firstName
 const countOnly = function(allItems, itemsToCount) {
@@ -59,3 +40,5 @@ assertEqual(result1["Jason"], 1);
 assertEqual(result1["Karima"], undefined);
 assertEqual(result1["Fang"], 2);
 assertEqual(result1["Agouhanna"], undefined);
+
+module.exports = countOnly;
